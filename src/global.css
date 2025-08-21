@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+@theme {
+    --color-background: #F5F5F5;
+
+    --color-primary: #22FF62;
+    --color-primary-lighter: #22FF621F;
+
+    --color-black: #000000;
+}
+
+@layer components {
+
+}
