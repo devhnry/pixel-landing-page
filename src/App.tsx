@@ -1,11 +1,11 @@
+import Navbar from "./components/Navbar";
+
 function App() {
-  return (
-    <main>
-        <div className={`bg-background`}>
-            Home Page
-        </div>
-    </main>
-  )
+    return (
+        <main>
+            <Navbar />
+        </main>
+    );
 }
 
-export default App
+export default App;
