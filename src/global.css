@@ -1,14 +1,65 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Geist:wght@100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Manrope:wght@200..800&display=swap');
 
 @theme {
+    /* 🎨 Colors */
     --color-background: #F5F5F5;
-
     --color-primary: #22FF62;
     --color-primary-lighter: #22FF621F;
-
+    --color-primary-darker: #17B84A;
     --color-black: #000000;
+
+    /* 🖋 Fonts */
+    --font-manrope: 'Manrope', sans-serif;
+    --font-inter: 'Inter', sans-serif;
+    --font-geist: 'Geist', sans-serif;
+    --font-serif: 'DM Serif Display', serif;
+
+    /* 📱 Breakpoints */
+    --breakpoint-xsm: 400px;
+    --breakpoint-xs: 460px;
+    --breakpoint-2xs: 600px;
+    --breakpoint-sm: 640px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 900px;
+    --breakpoint-2lg: 1024px;
+    --breakpoint-xl: 1200px;
+    --breakpoint-2xl: 1280px;
+    --breakpoint-3xl: 1340px;
+}
+
+@layer base {
+    body {
+        background-color: var(--color-background);
+        font-family: var(--font-inter), sans-serif;
+    }
 }
 
 @layer components {
+    /* Container wrapper with fluid padding */
+    .container-wrapper {
+        @apply px-[clamp(24px,calc(24px+76*((100vw-375px)/1185)),100px)] w-full mx-auto;
+    }
 
+    /* Button base */
+    .button {
+        @apply px-[18px] md:px-[20px] py-[12px] text-[18px] md:text-[20px] rounded-[10px] leading-[100%] font-medium tracking-[-3%] font-inter transition-all duration-200 cursor-pointer;
+        box-shadow: 0 4px 8px 0 #0000000F;
+    }
+    .button:hover {
+        box-shadow: 0 8px 16px 0 #0000001F;
+        transform: scale(1.03);
+    }
+
+    /* Nav underline hover */
+    .nav-items {
+        @apply relative cursor-pointer font-medium leading-[100%] tracking-[-4%] transition-all;
+    }
+    .nav-items::after {
+        content: '';
+        @apply absolute left-0 bottom-[-3px] h-[2px] w-0 bg-primary-darker transition-all duration-300;
+    }
+    .nav-items:hover::after {
+        @apply w-full;
+    }
 }
